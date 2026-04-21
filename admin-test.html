@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Test - GODS ROYAL SCHOOL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GODS ROYAL SCHOOL</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                <li><a href="admin-test.html">Admin Test</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Admin Mode Test</h1>
+        <p>This page helps verify whether admin login and access are working.</p>
+
+        <div class="admin-test-panel">
+            <button id="check-session">Check Current Session</button>
+            <button id="open-login">Open Login Page</button>
+            <button id="open-register">Open Register Page</button>
+            <button id="open-admin-dashboard">Open Admin Dashboard</button>
+        </div>
+
+        <div id="test-output" class="test-output">
+            <h2>Test Output</h2>
+            <p id="output-text">Click "Check Current Session" to verify your current login state.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 GODS ROYAL SCHOOL. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('check-session').addEventListener('click', function() {
+            const user = localStorage.getItem('user');
+            const userType = localStorage.getItem('userType');
+            const output = document.getElementById('output-text');
+
+            if (!user) {
+                output.textContent = 'No user is currently logged in. Use the Register and Login pages to create an admin account and sign in.';
+                return;
+            }
+
+            if (userType === 'admin') {
+                output.textContent = `Logged in as admin: ${user}. You should be able to use the Admin Dashboard.`;
+            } else if (userType === 'staff') {
+                output.textContent = `Logged in as staff: ${user}. Staff users can access the teacher dashboard, but admin dashboard access is reserved for admins.`;
+            } else {
+                output.textContent = `Logged in as student: ${user}. Students cannot access the admin dashboard.`;
+            }
+        });
+
+        document.getElementById('open-login').addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('open-register').addEventListener('click', function() {
+            window.location.href = 'register.html';
+        });
+
+        document.getElementById('open-admin-dashboard').addEventListener('click', function() {
+            window.location.href = 'admin-dashboard.html';
+        });
+    </script>
+</body>
+</html>

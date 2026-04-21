@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">GODS ROYAL SCHOOL</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="ca-tests.html">CA Tests</a></li>
+                <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
+                <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                <li><a href="admin-test.html">Admin Test</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li id="auth-link"><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to GODS ROYAL SCHOOL</h1>
+            <p>Empowering students to achieve their dreams through excellence in education.</p>
+        </section>
+
+        <!-- Students Reading Section -->
+        <section class="students-reading">
+            <div class="reading-content">
+                <h2>Excellence Through Learning</h2>
+                <p>Our students engage in collaborative learning environments that foster critical thinking, creativity, and academic excellence.</p>
+                <div class="reading-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Students</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Teachers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>95%</h3>
+                        <p>Pass Rate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reading-image">
+                <img src="images/students-reading.jpg" alt="Diverse Students Reading Together" onerror="this.src='images/student-group.svg'">
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h2>Quality Education</h2>
+                <p>Our dedicated teachers provide a comprehensive curriculum.</p>
+            </div>
+            <div class="feature">
+                <h2>Extracurricular Activities</h2>
+                <p>Join clubs, sports, and more to develop skills beyond the classroom.</p>
+            </div>
+            <div class="feature">
+                <h2>Community</h2>
+                <p>A supportive environment for students, parents, and staff.</p>
+            </div>
+        </section>
+        
+        <!-- Announcements Section -->
+        <section class="announcements-section">
+            <h2>Latest Announcements</h2>
+            <div id="public-announcements">
+                <p>Loading announcements...</p>
+            </div>
+        </section>
+        
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <p>Check out our latest school events and activities! <a href="gallery.html">View Full Gallery</a></p>
+            <div id="homepage-gallery" class="gallery-grid">
+                <!-- Gallery will be loaded dynamically -->
+            </div>
+        </section>
+        <section class="news">
+            <h2>Latest News & Announcements</h2>
+            <div id="news-container" class="news-container">
+                <!-- News articles will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 GODS ROYAL SCHOOL. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        // Load homepage gallery photos and news
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHomepageGallery();
+            loadHomepageNews();
+        });
+
+        function loadHomepageGallery() {
+            const container = document.getElementById('homepage-gallery');
+            const photos = JSON.parse(localStorage.getItem('schoolPhotos')) || [];
+
+            if (photos.length === 0) {
+                // Show default photos if no uploaded photos
+                container.innerHTML = `
+                    <div class="gallery-item">
+                        <img src="images/students-basketball.jpg" alt="Students playing basketball">
+                        <p>Basketball Championship</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/students-soccer.jpg" alt="Students playing soccer">
+                        <p>Soccer Practice</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/students-running.jpg" alt="Students running and exercising">
+                        <p>Physical Education</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Show up to 3 most recent photos
+            const recentPhotos = photos.slice(-3);
+            let html = '';
+            recentPhotos.forEach(photo => {
+                html += '<div class="gallery-item">';
+                html += '<img src="' + photo.data + '" alt="' + photo.title + '">';
+                html += '<p>' + photo.title + '</p>';
+                html += '</div>';
+            });
+
+            container.innerHTML = html;
+        }
+
+        function loadHomepageNews() {
+            const container = document.getElementById('news-container');
+            const newsArticles = JSON.parse(localStorage.getItem('schoolNews')) || [];
+
+            if (newsArticles.length === 0) {
+                // Show default news if no articles
+                container.innerHTML = `
+                    <article class="news-item">
+                        <h3>Welcome to Our School</h3>
+                        <p class="news-date">April 18, 2026</p>
+                        <p>Important announcements and updates from the school will appear here.</p>
+                    </article>
+                    <article class="news-item">
+                        <h3>School Achievement</h3>
+                        <p class="news-date">April 16, 2026</p>
+                        <p>Share the latest happenings and news with the school community.</p>
+                    </article>
+                    <article class="news-item">
+                        <h3>Upcoming Event</h3>
+                        <p class="news-date">April 14, 2026</p>
+                        <p>Stay informed about upcoming events and important dates.</p>
+                    </article>
+                `;
+                return;
+            }
+
+            // Show up to 3 most recent news articles
+            const recentNews = newsArticles.slice(0, 3);
+            let html = '';
+            recentNews.forEach(article => {
+                const articleDate = new Date(article.date).toLocaleDateString();
+                html += '<article class="news-item">';
+                html += '<h3>' + article.title + '</h3>';
+                html += '<p class="news-date">' + articleDate + '</p>';
+                html += '<p>' + article.content.substring(0, 150) + (article.content.length > 150 ? '...' : '') + '</p>';
+                html += '</article>';
+            });
+
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

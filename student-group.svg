@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#87c29f" />
+      <stop offset="100%" stop-color="#eaf5e9" />
+    </linearGradient>
+    <linearGradient id="pill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e6f0e6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" rx="24" fill="url(#bg)" />
+  <g opacity="0.95">
+    <ellipse cx="400" cy="270" rx="350" ry="40" fill="#b7d8b0" />
+    <g transform="translate(114 118)">
+      <circle cx="60" cy="40" r="34" fill="#f4d9c0" />
+      <path d="M27 172c23-46 66-46 89 0" fill="#a1c79e" />
+      <path d="M20 90c30 28 90 28 120 0l-19-58c-27-30-75-30-102 0l-19 58z" fill="#f4d9c0" />
+      <path d="M13 90c11 30 53 31 73 0" fill="#d4a885" opacity="0.6" />
+    </g>
+    <g transform="translate(294 96)">
+      <circle cx="65" cy="35" r="35" fill="#f5d6ba" />
+      <path d="M6 172c22-44 64-44 86 0" fill="#8eb07a" />
+      <path d="M0 100c25 34 90 34 115 0l-23-72c-24-34-70-34-94 0l-23 72z" fill="#f5d6ba" />
+      <path d="M12 98c15 34 54 34 74 0" fill="#d4a885" opacity="0.55" />
+    </g>
+    <g transform="translate(514 130)">
+      <circle cx="52" cy="42" r="32" fill="#f0cbb9" />
+      <path d="M17 155c19-40 56-40 75 0" fill="#9fc085" />
+      <path d="M10 90c21 26 72 26 93 0l-24-58c-21-28-61-28-82 0l-24 58z" fill="#f0cbb9" />
+      <path d="M15 92c12 29 47 29 60 0" fill="#d4a885" opacity="0.5" />
+    </g>
+    <g transform="translate(200 38)">
+      <circle cx="38" cy="32" r="30" fill="#d2a28f" />
+      <path d="M4 120c16-32 45-32 61 0" fill="#c0d4a7" />
+      <path d="M0 68c18 22 54 22 72 0l-17-42c-17-22-49-22-66 0l-17 42z" fill="#d2a28f" />
+    </g>
+    <g transform="translate(420 46)">
+      <circle cx="40" cy="28" r="28" fill="#f2d2b5" />
+      <path d="M8 110c14-28 40-28 54 0" fill="#b2c7a1" />
+      <path d="M2 72c15 20 48 20 63 0l-16-40c-16-20-45-20-61 0l-16 40z" fill="#f2d2b5" />
+    </g>
+  </g>
+</svg>

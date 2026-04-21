@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - High School Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">High School</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="extracurriculars.html">Extracurriculars</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="ca-tests.html">CA Tests</a></li>
+                <li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
+                <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                <li><a href="admin-test.html">Admin Test</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li id="auth-link"><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contact Us</h1>
+        <p>Reach out to us for more information.</p>
+        
+        <section class="contacts-display">
+            <h2>School Contacts</h2>
+            <div id="contacts-list" class="contacts-list">
+                <div class="contact-card">
+                    <h3>Main Office</h3>
+                    <p><strong>Phone:</strong> 08057335134</p>
+                    <p><strong>Email:</strong> chrisogoko14@gmail.com</p>
+                    <p><strong>Address:</strong> bakussa, Die Die, Abuja 12345</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-panel">
+            <h2>Admin Panel - Manage Contacts</h2>
+            <p id="admin-message" class="admin-message">Please sign in as a staff or admin member to manage contacts.</p>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Contact Name:</label>
+                    <input type="text" id="contact-name" placeholder="e.g., Main Office, Admissions" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone:</label>
+                    <input type="tel" id="contact-phone" placeholder="e.g., 08057335134" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email:</label>
+                    <input type="email" id="contact-email" placeholder="e.g., office@school.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-address">Address:</label>
+                    <textarea id="contact-address" placeholder="Street, City, State" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn-add">Add Contact</button>
+            </form>
+
+            <div class="admin-contacts">
+                <h3>All Contacts (Admin)</h3>
+                <table id="contacts-table" class="contacts-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts-tbody">
+                        <tr>
+                            <td>Main Office</td>
+                            <td>08057335134</td>
+                            <td>chrisogoko14@gmail.com</td>
+                            <td>bakussa, Die Die, Abuja 12345</td>
+                            <td><button class="btn-delete" onclick="deleteContact(0)">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="school-info-management">
+                <h3>Update School Information</h3>
+                <form id="school-info-form" class="school-info-form">
+                    <div class="form-group">
+                        <label for="school-email">School Email Address:</label>
+                        <input type="email" id="school-email" placeholder="e.g., info@godsroyalschool.edu.ng" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="school-address">School Address:</label>
+                        <textarea id="school-address" placeholder="Full school address including street, city, state, postal code" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-update">Update School Information</button>
+                </form>
+                <div id="school-info-display" class="school-info-display">
+                    <h4>Current School Information:</h4>
+                    <p><strong>Email:</strong> <span id="current-email">chrisogoko14@gmail.com</span></p>
+                    <p><strong>Address:</strong> <span id="current-address">bakussa, Die Die, Abuja 12345</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 GODS ROYAL SCHOOL. All rights reserved.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
